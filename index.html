@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jul Camill Manghano — Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Animate on Scroll Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* TYPEWRITER EFFECT */
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #4caf50;
+      animation: typing 3s steps(30), blink .6s infinite alternate;
+      width: fit-content;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      from { border-color: transparent; }
+      to { border-color: #4caf50; }
+    }
+
+    /* FLOATING PROFILE IMAGE */
+    .profile-img {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    .profile-img:hover {
+      transform: scale(1.05);
+      transition: 0.4s ease;
+    }
+
+    /* CARD HOVER WOW EFFECT */
+    .card {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0px 12px 30px rgba(0,0,0,0.25);
+    }
+  </style>
+
+</head>
+<body class="home-page">
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="logo" href="index.html" aria-label="Home">
+        <img src="image 1.jpg" alt="Jul Manghano Logo" class="logo-img">
+      </a>
+
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero soft" aria-label="Hero">
+      <div class="container hero-inner">
+
+        <div class="hero-text" data-aos="fade-right">
+          <h1 class="typewriter">Hello, I'm <span class="accent">Jul</span> Manghano</h1>
+          <p class="sub">Aspiring Web Developer • Buksu - IT Student • Tech Explorer</p>
+
+          <div class="hero-actions">
+            <a class="btn" href="projects.html">View My Work</a>
+            <a class="btn ghost" href="about.html">Learn More</a>
+          </div>
+        </div>
+
+        <div class="hero-profile" data-aos="fade-left">
+          <img src="image 1.jpg" alt="Julius Manghano — profile photo" class="profile-img">
+          <p class="small muted">Based in the Philippines • Open to collaboration</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="quick-projects container">
+      <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+
+      <div class="cards-grid">
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <img src="webpage image.png" alt="Project 1 screenshot" class="card-img">
+          <div class="card-body">
+            <h3>Project One - Website Coding</h3>
+            <p class="muted">A simple website I built while practicing HTML, CSS, and JavaScript. I focused on making clean layouts, basic animations, and improving my understanding of responsive design.</p>
+            <a class="link" href="projects.html">View project →</a>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="200">
+          <img src="webpage image2.png" alt="Project 2 screenshot" class="card-img">
+          <div class="card-body">
+            <h3>Portfolio Layout</h3>
+            <p class="muted">A layout exercise where I used CSS Grid and reusable components to design a clean and organized personal portfolio page.</p>
+            <a class="link" href="projects.html">View project →</a>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="300">
+          <img src="webpage image 3.png" alt="Project 3 screenshot" class="card-img">
+          <div class="card-body">
+            <h3>Coming Soon! A new website is on the way — created by yours truly.</h3>
+            <p class="muted">I’m currently building a clean, simple, and modern site to showcase my projects, skills, and growth as an IT student. It’s still in progress, but exciting things are coming. Stay tuned — the full experience will be launching soon!</p>
+            <a class="link" href="projects.html">View project →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Julius Manghano — Built with care</p>
+
+      <div class="socials">
+        <a href="https://github.com/joouullz" aria-label="GitHub" class="footer-icon" target="_blank">
+          <svg height="26" viewBox="0 0 16 16" width="26" aria-hidden="true">
+            <path fill="currentColor"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
+              2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+              0-.53.63-.01 1.08.58 1.23.82.72 1.21 
+              1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+              0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 
+              0 0 .67-.21 2.2.82a7.62 7.62 0 0 1 2-.27c.68 0 
+              1.36.09 2 .27 1.53-1.04 2.2-.82 
+              2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 
+              1.27.82 2.15 0 3.07-1.87 3.75-3.65 
+              3.95.29.25.54.73.54 1.48 
+              0 1.07-.01 1.93-.01 2.2 
+              0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+            </path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS SCRIPT -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 900, once: true });</script>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !open);
+      nav.classList.toggle('open');
+    });
+
+    (function setActiveLink() {
+      const links = document.querySelectorAll('.nav-list a');
+      const path = location.pathname.split('/').pop();
+      links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === path || (href === 'index.html' && path === '')) {
+          a.classList.add('active');
+        }
+      });
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

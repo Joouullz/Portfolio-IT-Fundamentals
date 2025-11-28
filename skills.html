@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skills — Julius Manghano</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Home">
+        <img src="image 1.jpg" alt="Jul Manghano Logo" class="logo-img">
+      </a>
+
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container skills-section fade-section">
+      <h1 class="section-title fade-in-title">Skills</h1>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal tilt-card">
+          <h3>Basic Web Fundamentals</h3>
+          <ul class="muted">
+            <li>HTML → structure of a webpage</li>
+            <li>CSS → basic styling</li>
+            <li>Simple JavaScript → interactivity</li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal tilt-card">
+          <h3>Cybersecurity Awareness (Beginner Level)</h3>
+          <ul class="muted">
+            <li>Strong & Unique Passwords</li>
+            <li>Basic Phising</li>
+            <li>Importance of Updates</li>
+            <li>Safe Browsing</li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal tilt-card">
+          <h3>Digital Communication & Documentation</h3>
+          <ul class="muted">
+            <li>Write clear messages/emails</li>
+            <li>Create simple reports</li>
+            <li>Use Google Docs, Sheets, PowerPoint</li>
+          </ul>
+        </div>
+
+        <div class="skill-card wide reveal tilt-card">
+          <h3>Soft Skills</h3>
+          <p class="muted">Communication, collaboration, attention to detail.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+   <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Julius Manghano — Built with care</p>
+
+      <div class="socials">
+        <a href="https://github.com/joouullz" aria-label="GitHub" class="footer-icon" target="_blank">
+          <svg height="26" viewBox="0 0 16 16" width="26" aria-hidden="true">
+            <path fill="currentColor"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
+              2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+              0-.53.63-.01 1.08.58 1.23.82.72 1.21 
+              1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+              0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 
+              0 0 .67-.21 2.2.82a7.62 7.62 0 0 1 2-.27c.68 0 
+              1.36.09 2 .27 1.53-1.04 2.2-.82 
+              2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 
+              1.27.82 2.15 0 3.07-1.87 3.75-3.65 
+              3.95.29.25.54.73.54 1.48 
+              0 1.07-.01 1.93-.01 2.2 
+              0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+            </path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !open);
+      nav.classList.toggle('open');
+    });
+
+    // highlight active link
+    (function setActiveLink() {
+      const links = document.querySelectorAll('.nav-list a');
+      const path = location.pathname.split('/').pop();
+      links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === path || (href === 'index.html' && path === '')) {
+          a.classList.add('active');
+        }
+      });
+    })();
+
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // scroll reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // 3D tilt effect on cards
+    const tiltCards = document.querySelectorAll(".tilt-card");
+    tiltCards.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+      });
+    });
+  </script>
+</body>
+</html>

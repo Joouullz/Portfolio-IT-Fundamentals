@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Julius Manghano</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Fade-in on load */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating animation (profile image) */
+    .float {
+      animation: floatAnim 4s ease-in-out infinite;
+    }
+    @keyframes floatAnim {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Button glow animation */
+    .btn {
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(46, 204, 113, 0.6);
+    }
+
+    /* Soft fade footer */
+    footer {
+      animation: fadeIn 1.3s ease forwards;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header fade-in">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Home">
+        <img src="image 1.jpg" alt="Jul Manghano Logo" class="logo-img">
+      </a>
+
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="sub-hero soft container fade-in">
+      <div class="sub-hero-inner reveal">
+        <img class="profile-large float" src="image 2.jpg" alt="Julius profile">
+
+        <div class="about-content">
+          <h1 class="reveal">About Me</h1>
+
+          <p class="lead muted reveal">
+            I am a 1st-year IT student from Bukidnon State University, aspiring to become a full-stack web developer.
+            I enjoy turning ideas into clean, interactive, and visually appealing websites while constantly learning modern tools and technologies.
+          </p>
+
+          <p class="reveal">
+            As a beginner in the tech world, I'm committed to improving my craft through hands-on projects,
+            continuous research, and collaboration. Every project strengthens my creativity, technical foundation,
+            and passion for becoming a skilled developer in the future.
+          </p>
+
+          <ul class="meta-list reveal">
+            <li><strong>Sex:</strong> Male</li>
+            <li><strong>Birthday:</strong> July 14, 2006</li>
+            <li><strong>Appearance:</strong> Gwapoha lagi 😎</li>
+          </ul>
+
+          <a class="btn reveal" href="projects.html">See my Projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Julius Manghano — Built with care</p>
+
+      <div class="socials">
+        <a href="https://github.com/joouullz" aria-label="GitHub" class="footer-icon" target="_blank">
+          <svg height="26" viewBox="0 0 16 16" width="26" aria-hidden="true">
+            <path fill="currentColor"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
+              2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+              0-.53.63-.01 1.08.58 1.23.82.72 1.21 
+              1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+              0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 
+              0 0 .67-.21 2.2.82a7.62 7.62 0 0 1 2-.27c.68 0 
+              1.36.09 2 .27 1.53-1.04 2.2-.82 
+              2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 
+              1.27.82 2.15 0 3.07-1.87 3.75-3.65 
+              3.95.29.25.54.73.54 1.48 
+              0 1.07-.01 1.93-.01 2.2 
+              0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+            </path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !open);
+      nav.classList.toggle('open');
+    });
+
+    // highlight active link
+    (function setActiveLink() {
+      const links = document.querySelectorAll('.nav-list a');
+      const path = location.pathname.split('/').pop();
+      links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === path || (href === 'index.html' && path === '')) {
+          a.classList.add('active');
+        }
+      });
+    })();
+
+    // scroll reveal effect
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // correct year update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
